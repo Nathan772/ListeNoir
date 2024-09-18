@@ -1,0 +1,111 @@
+lRemarques générales sur le tuto Laravel :
+
+Pour brancher laravel à la bdd, il faut passer par le fichier .env
+
+projet technos :
+
+-sqlite
+-laravel
+-reactJs
+-css
+-html
+
+prochain projet: 
+
+-mariaDB
+-symfony ?? ou encore laravel si on a trop la flemme de se taper les install...
+-angularJS
+-css
+-html
+
+
+pour la base de données sqlite, lancer dans le terminal la commande :
+
+-php artisan make:migration create_books_table 
+
+
+
+: cela devrait créer le fichier .php "create_books_table".
+avec des fichiers "up", "down", déjà remplies
+
+-lancer aussi la commande :
+
+php artisan make:model Book
+
+après avoir créé les fonctions :
+
+```
+ /*
+    fonction générée par nathan 
+    */
+    public function books(): HasMany 
+    {
+        return $this->hasMany(Book::class);
+    }
+```
+Il faut lancer la commande : 
+
+```bash
+php artisan migrate
+```
+
+Cela va permettre de créer les tables définies, comme :
+
+-"users" : create_users_table
+-"books" : create_books_table 
+
+A partir de là, on peut commencer à faire des requêtes.
+
+Mais il faut d'abord créer une factory.
+Pour cela, il faut utiliser la commande :
+
+```bash
+php artisan make:factory BookFactory
+```
+
+Cela va créer le factory de book.
+Il y en avait déjà un pour user (userFactory)
+
+Il faut faire :
+
+```bash
+php artisan db:seed
+```
+
+pour mettre à jour ce qui a été fait dans le dossier databaseSeeder.php ; 
+c'est à dire, les ajouts en base avec des créations de lignes (tuples).
+
+
+```bash
+php artisan make:controller BookController
+```
+créé le controller, permet de récupérer les données créées via le seed.
+
+app > Http > Controllers > Controller
+
+il faut rentrer dans bookController et créer la méthode index.
+Puis dans view, ajouter le dossier books puis le fichier index.blade.php.
+
+
+Les fichiers à modifier :
+
+dans resources et dans routes :
+
+-web.php
+-index.blade.php
+-app(ou welcome).blade.php
+
+dans app :
+
+http> Controllers : 
+
+-BookControllers.php (créé directement par moi)
+
+Models:
+
+-Book.php et User.php
+
+database :
+
+-BookFactory
+-UserFactory...
