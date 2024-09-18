@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 
-<!-- blade est le moteur de tempalte de laravel par défaut 
+<!-- ancien fichier 
+
+welcome.blade.php
+
+renommé, "app.blade.php"
+
+-->
+
+
+<!-- blade est le moteur de template de laravel par défaut 
 
 le fichier test, permet de faire des tests unitaires sur laravel
 le dossier vendor on touche pas, c'est indispensable mais c'est géré automatiquement
@@ -17,7 +26,7 @@ vite permet de gérer javascript
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-    <title>Laravel XX React</title>
+    <title>Ma super application Laravel </title>
     <!-- inclusion du fichier javascript 
      conseil made in gpt4
     -->
@@ -43,17 +52,27 @@ vite permet de gérer javascript
     
 -->
 </head>
+
+
 <body>
+
     <p> On est dans resources > views > welcome.blade.php </p>
+    <!-- deprecated -->
     <!--<div id="counter"></div>-->
     <!--
     <script src="{{ asset("resources/js/App.jsx") }}" defer>
 </script>-->
-
-<!-- Target container is not a DOM element
+<!--
+ce que le yield signifie, c'est que à chaque fois qu'on va créé une vue 
+elle "extendra" le fichier welcome.blade.php et la partie dynamique sera le "content"
+-->
+@yield('content')
+<!-- le problème de type "Target container is not a DOM element"
  est résolue par cette div
 -->
 <div id="root"></div>
+
+
 </body>
 
 
