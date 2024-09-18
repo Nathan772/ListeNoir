@@ -27,7 +27,17 @@ Route::get('/', function () {
 Ici, on a plus la page d'affichage classique, car on a modifié le fichier blade pour qu'il redirige vers app avec la liste
 de fruits (initialement)
 */
-    return view('welcome');
+    //oldname
+    //return view('welcome');
+    //old use
+    //return view('app');
+
+    /*on va appeler index,
+    lorsqu'on est à la racine de façon à ne pas appeler directemenent le template (app)
+    */
+    return view('index');
+
+
 });
 
 /*

@@ -20,6 +20,9 @@ lors de l'affichage
 
 @section('content')
 
+<h1> hello, ZA WARUUUUUDO </h1>
+
+
 @foreach($books as $book) 
 
 {{ $book->title }} de {{ $book->user->name}}
