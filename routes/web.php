@@ -56,12 +56,69 @@ books.index
 
 Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
 
+
+
+
 /* correspond à ce qui est utilisé pour le create de create.blade.php (début)*/
+
+
+
+
+
+
+
 
 Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.create');
 
-/* on appelle la méthode "store" lorsqu'on appelle créer de books.create */
+/* 
 
-Route::post('/books', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+on appelle la méthode "store" de "BookController.php" 
+lorsqu'on clique sur le bouton "créer" de books.create. 
+CONTRAIREMENT À ce que l'on voit dans le tuto,
+il faut donc  préciser dans le path du post
+le mot **store** (associé à la méthode).
+*/
+
+Route::post('/books/store', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+
+
+
+
+
+
+
+
 
 /* correspond à ce qui est utilisé pour le create de create.blade.php (fin)*/
+
+
+
+
+
+/* correspond à ce qui est utilisé pour le edit de edit.blade.php (début)*/
+
+
+
+
+
+
+/*
+ici on précise aussi 
+{book} à edit pour lui fournir le "book" que l'on souhaite traiter.
+Ça correspond au $book qui est passé en argument de la méthode
+"edit" de app > Https > Controllers > BookController 
+*/
+
+Route::get('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
+
+/* on appelle la méthode "update" lorsqu'on appelle edit de books.update */
+
+Route::post('/books/edit', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
+
+
+
+
+
+
+
+/* correspond à ce qui est utilisé pour le create de edit.blade.php (fin)*/

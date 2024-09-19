@@ -92,7 +92,7 @@ Les fichiers à modifier :
 dans resources et dans routes :
 
 -web.php
--views > index.blade.php
+-index.blade.php
 -app(ou welcome).blade.php
 
 dans app :
@@ -110,3 +110,24 @@ database :
 -BookFactory
 -UserFactory...
 
+remaque :
+
+peut-être un problème à 23:25 : car lorsqu'on arrive à 26:40, on 
+ne réussit pas à afficher les livres.
+
+--> 27:10
+
+Pour créer un objet (ici livre), il faut la vue, qui va représenter le formulaire
+on va pouvoir indiquer le titre, et ensuite on aura besoin d'enregistrer.
+
+Remarque : 
+
+-Parfois il faut update la page en utilisant directement ctrl+R ; sinon, simplement reculer pour mettre à jour ne suffira pas 
+pour update la page risqu de laisser en place des problèmes.
+
+
+Comment gérer :
+
+-"mass asssignment erreur" :
+cela est lié au système de sécurité qui empêche l'injection de n'importe quoi dans la table.
+(dans le cas de l'exemple : ajouter title et userId)
