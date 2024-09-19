@@ -20,6 +20,7 @@ c'est cette classe qui gère l'affiche du fichier test.php
 /*
 get est le verbe http
 
+le "/" signifie qu'on est place à la racine 
 */
 
 Route::get('/', function () {
@@ -54,3 +55,13 @@ books.index
 */
 
 Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
+
+/* correspond à ce qui est utilisé pour le create de create.blade.php (début)*/
+
+Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.create');
+
+/* on appelle la méthode "store" lorsqu'on appelle créer de books.create */
+
+Route::post('/books', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+
+/* correspond à ce qui est utilisé pour le create de create.blade.php (fin)*/
