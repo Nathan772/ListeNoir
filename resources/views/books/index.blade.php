@@ -6,7 +6,7 @@ Fait référence à app.blade.php (l'ancien welcome.blade...)
 @extends('app')
 
 <!--
-Affiche les données de books pour chaque book contenu :
+C'est ce fichier affiche les données de books pour chaque book contenu :
 
 titre
 nom du livre
@@ -25,7 +25,26 @@ lors de l'affichage
 
 @foreach($books as $book) 
 
+
+<p>
+
+
 {{ $book->title }} de {{ $book->user->name}}
+
+
+</p>
+
+<br>
+
+<p>
+
+    <!-- ici on va faire appel à "edit" de books 
+    on peut ensuite passer différente choses : 
+        le $book ou un de ses champs
+    -->
+    <!-- Une possibilité : <a href="{{ route('books.edit', $book->id) }}"> Editer </a> -->
+    <a href="{{ route('books.edit', $book)}}"> Editer </a>
+</p>
 
 @endforeach
 

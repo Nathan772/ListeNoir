@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 //ajouté manuellement
-use App\Models\Books;
+use App\Models\Book;
 //ajouté manuellement
 use App\Models\User;
 
@@ -53,7 +53,14 @@ class BookController extends Controller
         si on fait ça, on obtient à l'affichage web,
         une page avec un tableau, qui contient tout ce qui provient de notre formulaire 
         */
-        dd($request->all());
+        //dd($request->all());
+
+        //affiche juste le titre dans une page
+       
+        //dd($request->title);
+        //d'autres possibilités évoquées dans la vidéo, mais non exploitées
+        //dd($request->input('title'));
+        //dd($request->get('title'));
 
         /*
         La méthode avec le factory est vraiment à titre d'exemple, 
@@ -62,17 +69,42 @@ class BookController extends Controller
         en pratique)
         */
 
-        // $user = User::factory()->create();
+        $user = User::factory()->create();
 
-        // Book::create([
+        Book::create([
 
-           
-        //     'title' => ,
-        //     /*
-        //     le id du user va être automatiquement généré
-        //     */
-        //     'user_id' => $user->id,
-        // ]);
+           /* 
+           A noter que le mot "title" fait référence
+           au " name='title' " associé à l'input de la page views>create.blade
+           il faut garder la correspondance.
+           */
+            'title' => $request->title,
+            /*
+            le id du user va être automatiquement généré
+            */
+            'user_id' => $user->id,
+        ]);
+        
+        /* on renvoie le resultat de tout ça vers la page
+        books.index ;
+        et on devrait avoir un livre en plus.
+        */
+        return redirect()->route('books.index');
+    }
+
+    /**
+     * $book permet de brancher le book que l'on veut éditer avec celui qu'on aura passé depuis l'url, en gros ça permet d'éditer le livre qu'on aura 
+     * passé par l'url.
+     */
+    public function edit(Request $request, Book $book){
+        /*
+        cette vue permet d'éditer le livre.
+        Il faut donc créer un fichier dans books.edit (book> edit.blade.php) pour la développer.
+        */
+        return view('books.edit',
+    [
+        'book' => $book,
+    ]);
     }
 }
 
