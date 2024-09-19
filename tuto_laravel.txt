@@ -92,7 +92,7 @@ Les fichiers à modifier :
 dans resources et dans routes :
 
 -web.php
--index.blade.php
+-views > index.blade.php
 -app(ou welcome).blade.php
 
 dans app :
@@ -109,3 +109,4 @@ database :
 
 -BookFactory
 -UserFactory...
+
