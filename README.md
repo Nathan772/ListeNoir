@@ -7,6 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# 1) Laravel 
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -60,6 +62,24 @@ In order to ensure that the Laravel community is welcoming to all, please review
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+# 2) Le projet
+
+## Lancer l'application
+
+Avant toute chose, assurez-vous d'avoir installé sur votre machine :
+
+-ReactJs
+-Laravel avec une version supérieure ou égale à la version 
+-Php, avec une version supérieure ou égale à la version 
+
+Pour lancer l'application, vous devez ouvrir deux terminaux : 
+
+-dans le premier, lancez la commande : "php artisan serve --host=127.0.0.1 --port=8000".
+
+-dans le second, lancez la commande "npm run dev".
+
+
 
 ## License
 
