@@ -100,11 +100,67 @@ class BookController extends Controller
         /*
         cette vue permet d'éditer le livre.
         Il faut donc créer un fichier dans books.edit (book> edit.blade.php) pour la développer.
+        Ici on renvoie le book.
         */
         return view('books.edit',
     [
         'book' => $book,
     ]);
+    }
+
+    /**
+     * permet d'avoir un nouveaut titre pour le livre
+     */
+    public function update(Request $request, Book $book){
+        
+        /* ici on dit qu'on va lancer 
+        la requête "update" de la bdd
+        pour mettre à jour le titre du livre */
+        $book->update([
+            'title' => $request->title,
+        ]);
+
+         /* on renvoie le resultat de tout ça vers la page
+        books.index ;
+        et on devrait avoir un livre avec un titre mis à jour
+        */
+        return redirect()->route('books.index');
+
+        /*useless, deprecated: 
+        
+        return view('books.edit',
+    [
+        'book' => $book,
+    ]);*/
+    }
+
+
+
+
+
+
+
+
+
+
+    /**
+     * permet de supprimer un livre
+     */
+    public function destroy(RBook $book){
+        /*
+        supprime le livre de la base de données
+        */
+        $book->delete();
+
+         /* on renvoie le resultat de tout ça vers la page
+        books.index ;
+        et on devrait avoir un livre en moins dans la bdd.
+        */
+        //option 1
+        //return to_route('books.index');
+        //option 2 (équivalent à 1)
+        return redirect()->route('books.index');
+        
     }
 }
 

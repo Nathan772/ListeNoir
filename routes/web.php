@@ -111,9 +111,12 @@ ici on précise aussi
 
 Route::get('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
 
-/* on appelle la méthode "update" lorsqu'on appelle edit de books.update */
+/* on appelle la méthode "update" lorsqu'on appelle edit de books.update.
+On lui passe le book comme argument.
+On appelle put car on appelle @method('PUT') dans edit.blade (qui est associé à update)
+*/
 
-Route::post('/books/edit', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
+Route::put('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
 
 
 
@@ -122,3 +125,50 @@ Route::post('/books/edit', [\App\Http\Controllers\BookController::class, 'update
 
 
 /* correspond à ce qui est utilisé pour le create de edit.blade.php (fin)*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* correspond à ce qui est utilisé pour le destroy de delete.blade.php (début)*/
+
+
+
+
+
+
+/*
+ici on précise aussi 
+{book} à supprimer pour lui fournir le "book" que l'on souhaite supprimer.
+Ça correspond au $book qui est passé en argument de la méthode
+"destroy" de app > Https > Controllers > BookController 
+*/
+
+//Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+
+Route::delete('/books/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+
+/* 
+on appelle la méthode "destroy" lorsqu'on appelle edit de books.delete.
+On lui passe le book comme argument.
+On appelle put car on appelle @method('PUT') dans edit.blade (qui est associé à update)
+*/
+
+//Route::put('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+
+
+
+
+
+
+
+/* correspond à ce qui est utilisé pour le destroy de delete.blade.php (fin)*/
