@@ -70,7 +70,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 Avant toute chose, assurez-vous d'avoir installé sur votre machine :
 
 -ReactJs
--Laravel avec une version supérieure ou égale à la version 1.0
+-Laravel avec une version supérieure ou égale à la version 9.5
 -Php, avec une version supérieure ou égale à la version 8.3.11
 
 Pour lancer l'application, vous devez ouvrir deux terminaux : 
