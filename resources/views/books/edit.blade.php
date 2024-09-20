@@ -5,8 +5,11 @@
      comment on a définit cette nouvelle méthode en post, il faut aussi la définir dans le fichier "web.php"
     -->
     <!-- <form action ="/books" method="POST"> old version-->
-    <!-- le nom "books.update" fait écho à books.update de web.php en Route::post -->
-    <form action ="{{ route('books.update')}}" method="POST">
+    <!-- le nom "books.update" fait écho à books.update de web.php en Route::post
+     le $book correspond au book qui est attendu dans ""Route::post('/books/edit/{book}""
+     de "web.php"
+    -->
+    <form action ="{{ route('books.update', $book)}}" method="POST">
 
         <!-- csrf est indispensable pour se prémunir des failles web -->
 
@@ -21,5 +24,16 @@
          que l'on récupère -->
         <input type="text" name="title" value="{{$book->title}}">
         <button type="submit"> Éditer </button>
+
+        <button type="submit"> Supprimer </button>
     </form>
+
+    <!-- gère la suppression -->
+
+    <form action ="{{ route('books.delete', $book)}}" method="POST">
+
+        <button type="submit"> Supprimer </button>
+
+    </form>
+    
 @endsection

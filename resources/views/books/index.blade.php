@@ -44,6 +44,21 @@ lors de l'affichage
     -->
     <!-- Une possibilité : <a href="{{ route('books.edit', $book->id) }}"> Editer </a> -->
     <a href="{{ route('books.edit', $book)}}"> Editer </a>
+
+    <!-- pour supprimer on va renvoyer l'action associé au clique de ce formulaire
+     vers la fonction destroy du BookController qu'on a créée --> 
+
+    <form action="{{route('books.destroy', $book)}}" method= "POST">
+
+        <!-- comme POST n'est pas supporté, on va
+         ajouter le csrf et la méthode "DELETE" --> 
+
+
+        @csrf 
+
+        @method('DELETE')
+        <button type="submit"> Supprimer </button>
+    </form>
 </p>
 
 @endforeach

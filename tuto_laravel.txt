@@ -4,7 +4,7 @@ Pour brancher laravel à la bdd, il faut passer par le fichier .env
 
 projet technos :
 
--sqlite
+-sqlite x --> MARIA DB
 -laravel
 -reactJs
 -css
@@ -87,6 +87,10 @@ il faut rentrer dans bookController et créer la méthode index.
 Puis dans view, ajouter le dossier books puis le fichier index.blade.php.
 
 
+
+
+
+
 Les fichiers à modifier :
 
 dans resources et dans routes :
@@ -110,11 +114,6 @@ database :
 -BookFactory
 -UserFactory...
 
-remaque :
-
-peut-être un problème à 23:25 : car lorsqu'on arrive à 26:40, on 
-ne réussit pas à afficher les livres.
-
 --> 27:10
 
 Pour créer un objet (ici livre), il faut la vue, qui va représenter le formulaire
@@ -131,3 +130,12 @@ Comment gérer :
 -"mass asssignment erreur" :
 cela est lié au système de sécurité qui empêche l'injection de n'importe quoi dans la table.
 (dans le cas de l'exemple : ajouter title et userId)
+
+-"Class "App\Http\Controllers\RBook" does not exist" : cela signifie qu'une de vos variables utilisées dans vos méthodes, probablement dans le fichier
+BookController.php, possède un nom de type erroné. C'est probablement juste une erreur de typographie.
+Chercher par mot clé le nom du type (ici "RBOOK") dans l'un de vos fichier du dossier app/HTTP/Controller.
+
+
+-Pour utiliser MariaDB, consultez la page suivante :
+
+https://www.cloudways.com/blog/connect-mariadb-to-laravel/
