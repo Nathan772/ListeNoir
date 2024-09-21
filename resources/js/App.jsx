@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import React from "react";
 import ReactDOM from "react-dom";
 
+//import "/var/www/html/ListeNoir2/custom.scss";
 
 //il faut écrire ces lignes manuellement
 import Fruit from "./reactJs/components/Fruit";
