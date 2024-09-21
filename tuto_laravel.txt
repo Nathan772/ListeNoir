@@ -1,4 +1,4 @@
-lRemarques générales sur le tuto Laravel :
+Remarques générales sur le tuto Laravel :
 
 Pour brancher laravel à la bdd, il faut passer par le fichier .env
 
@@ -19,11 +19,9 @@ prochain projet:
 -html
 
 
-pour la base de données sqlite, lancer dans le terminal la commande :
+pour la base de données sqlite, lancer dans le terminal la commande (marche aussi avec MariaDb):
 
 -php artisan make:migration create_books_table 
-
-
 
 : cela devrait créer le fichier .php "create_books_table".
 avec des fichiers "up", "down", déjà remplies
@@ -87,6 +85,9 @@ il faut rentrer dans bookController et créer la méthode index.
 Puis dans view, ajouter le dossier books puis le fichier index.blade.php.
 
 
+Pour spécifier les caractéristiques des colonnes d'une table, il faut écrire dans : 
+
+database > migrations > /var/www/html/ListeNoir2/database/migrations/2024_09_16_093242_create_books_table.php
 
 
 
@@ -139,3 +140,47 @@ Chercher par mot clé le nom du type (ici "RBOOK") dans l'un de vos fichier du d
 -Pour utiliser MariaDB, consultez la page suivante :
 
 https://www.cloudways.com/blog/connect-mariadb-to-laravel/
+
+
+Laravel X MariaDB: 
+
+fichiers autogénérés pour Maria DB par la commande "php artisan make:model Post -m": 
+
+-/var/www/html/ListeNoir2/database/migrations/2024_09_20_085455_create_posts_table.php
+-app/Models/Post.php
+
+résoudre :
+
+nécessaire pour lancer  "php artisan migrate" (DÉBUT) :
+
+- ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (13) 
+
+--> https://forum.ubuntu-fr.org/viewtopic.php?id=2064313
+
+- voir et supprimer les users anonymes : 
+
+- accéder à mysql : sudo mysql
+
+--> https://webhostinggeeks.com/howto/how-to-delete-anonymous-users-from-mysql-on-centos-6-2/
+
+- sur mysql, créer un nouvel utilisateur avec son mdp : 
+
+CREATE USER 'nathanb'@'localhost' IDENTIFIED "monmdp";
+
+la commande pour lancer avec un mode user se trouve juste ici :
+
+-https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+
+GRANT CREATE ON *.* TO 'nathanb'@'localhost';
+
+GRANT ALL PRIVILEGES ON *.* TO 'nathanb'@'localhost' WITH GRANT OPTION;  --> il faut donner les droits à votre user, ici, "nathanb"
+
+nécessaire pour lancer  "php artisan migrate" (FIN)
+
+Dans "mysql", pour connaître les tables disponibles :
+
+-SELECT table_name
+FROM INFORMATION_SCHEMA.TABLES
+WHERE table_type = 'BASE TABLE'
+
+(https://www.datameer.com/blog/sql_how-to-display-all-the-tables-from-a-database/)

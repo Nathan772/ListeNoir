@@ -146,7 +146,7 @@ class BookController extends Controller
     /**
      * permet de supprimer un livre
      */
-    public function destroy(RBook $book){
+    public function destroy(Book $book){
         /*
         supprime le livre de la base de données
         */

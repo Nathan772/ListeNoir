@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
+     * 
      * Run the migrations.
      *
      * this methods create the tab books
      * @return void
+     * 
      */
     public function up()
     {
