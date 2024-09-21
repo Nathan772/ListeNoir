@@ -151,11 +151,12 @@ ici on précise aussi
 {book} à supprimer pour lui fournir le "book" que l'on souhaite supprimer.
 Ça correspond au $book qui est passé en argument de la méthode
 "destroy" de app > Https > Controllers > BookController 
+qui doit aussi matcher avec le fichier edit.blade > books.destroy (du formulaire)
 */
 
-//Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 
-Route::delete('/books/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+//Route::delete('/books/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 
 /* 
 on appelle la méthode "destroy" lorsqu'on appelle edit de books.delete.

@@ -25,15 +25,19 @@
         <input type="text" name="title" value="{{$book->title}}">
         <button type="submit"> Éditer </button>
 
-        <button type="submit"> Supprimer </button>
     </form>
 
-    <!-- gère la suppression -->
+    <!-- gère la suppression  (DÉBUT) -->
 
-    <form action ="{{ route('books.delete', $book)}}" method="POST">
+    
+    <!--(cause des bugs...)-->
+
+    <form action ="{{ route('books.destroy', $book)}}" method="POST">
 
         <button type="submit"> Supprimer </button>
 
     </form>
+
+    <!-- gère la suppression  (FIN) -->
     
 @endsection
