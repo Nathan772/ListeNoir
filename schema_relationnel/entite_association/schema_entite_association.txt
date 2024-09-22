@@ -1,0 +1,31 @@
+utilisateur: id_util, pseudo, nom_visible, statut, mdp, mail, certification, banni
+
+
+ecrit, 0N utilisateur, 11 avis, 11 entite
+
+note, 0N avis, 0N user: utile
+
+avis: id_av,date_creation, date_derniere_modif, contenu, note
+
+contient, 11 photo, 0N avis
+photo: id_pho, contenu_photo
+
+
+
+entite:id_entite
+utilise, 1N numero, 0N entite
+numero:idnum, numero
+
+est_presente, 1N entreprise, 0N entite
+
+entreprise:id_entreprise, usurpe, nom
+
+appartient, 0N entite, 1N adr_mail
+
+adr_mail:id_mail,adresse
+
+possede, 0N entite, 1N site
+
+site:id_site, nom
+
+
