@@ -1,0 +1,6 @@
+-On pourrait laisser l'utilisateur qui fait une recherche être le plus exhaustif dans ses critères.
+
+- plus il est exhaustif, plus notre base va lui apporter des avis proches de ce qu'il a donné
+(nom d'entreprise, numéro, mail...)
+
+-on peut aussi lui suggérer des avis pour lesquels il y a un match sur certains critères, même si d'autres divergent
