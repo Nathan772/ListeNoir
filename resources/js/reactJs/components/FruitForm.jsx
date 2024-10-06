@@ -121,6 +121,9 @@ export default function FruitForm({ handleAdd }) {
     //3. Update Fruit à ajouter
     handleAdd(fruitAAjouter);
 
+
+
+    
     //4. On réinitialise
     setNouveauFruit("");
     //alert("entrée dans addfruit");
@@ -151,3 +154,30 @@ export default function FruitForm({ handleAdd }) {
     </div>
   );
 }
+
+/*
+<!-- ce formulaire permettra de modifer un livre à la base de données 
+     comment on a définit cette nouvelle méthode en post, il faut aussi la définir dans le fichier "web.php"
+    -->
+    <!-- <form action ="/books" method="POST"> old version-->
+    <!-- le nom "books.update" fait écho à books.update de web.php en Route::post
+     le $book correspond au book qui est attendu dans ""Route::post('/books/edit/{book}""
+     de "web.php"
+    -->
+
+     <!-- ce formulaire permettra d'ajouter un livre à la base de données 
+     comment on a définit cette nouvelle méthode en post, il faut aussi la définir dans le fichier "web.php"
+    -->
+    <!-- <form action ="/books" method="POST"> old version-->
+    <!-- le nom "books.store" fait écho à books.store de web.php en Route::post -->
+    Titre de l'oeuvre : <form action ="{{ route('books.store')}}" method="POST">
+
+        <!-- csrf est indispensable pour se prémunir des failles web -->
+
+        @csrf 
+
+        <input type="text" name="title">
+        <button type="submit"> Créer </button>
+    </form>
+
+    */

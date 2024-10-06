@@ -42,18 +42,48 @@ de fruits (initialement)
 });
 
 /*
+
+premier argument : la position du fichier dans l'arborescence
+
+
+deuxième argument : le nom de la méthode choisit 
+pour gérer ça qui se trouve dans Book::controller
+
+
+troisième argument : le nom qui sera utilisé pour l'appeler
+quand on fera "route('LeNomChoisit')" (ici accueil)
+
+*/
+Route::get('/app', [\App\Http\Controllers\BookController::class, 'accueil'])->name('accueil');
+
+
+/*
 si il y a une seule action on peut simplifier en :
 
 Route::view('/', view:'welcome');
 */
 
 /*
-premier paramètre du route : la class chosie
+premier paramètre du route : la class choisie
 deuxième paramètre : la méthode choisie (index)
 le name qui suit la première parenthèse correspond au nom que l'on souhaite donner à la méthode, ici:
 books.index
 */
 
+//add by nathan
+//necessary for BooksIndex
+//Route::view('/{any?}', 'dashboard')->where('any', '.*');
+//this line will load the dashboard for any view that comes
+// from React Router
+/* the name "app" 
+has to match with the main
+entryPoint "blade"
+file of the project
+*/
+Route::view('/{any?}', 'app')->where('any', '.*');
+
+//cela fonctionne avec postman
+//mais pas encore avec 
 Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
 
 

@@ -9,6 +9,8 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
+use App\Http\Resources\BookResource;
+
 class BookController extends Controller
 {
     // créée par nathan
@@ -25,18 +27,63 @@ class BookController extends Controller
 
         //utilise le modèle
         $books = Book::all();
-        
+        /*
+        "view(books.create)" correspond au path du fichier
+        que l'on va utiliser pour créer la vue qui permet de voir
+        automatiquement l'ensemble des 
+         livres view > books > index.blade.php
+        */
         return view('books.index', [
             'books' => $books
         ]);
 
     }
 
+    public function show(Book $book){
+
+        return new BookResource($book);
+    }
+
+
+    // créée par nathan
+    public function indexForReact(Request $request){
+        //récupère les livres et les affiches dans une vue
+        //possibilité 2
+        //return view('books/index');
+
+        // récupère les données dans une vue
+        /*
+        renvoie un tableau
+        qui possède la variable $books
+        */
+        // Get data here, eg. make an external API request or DB query
+        
+
+         // Return success
+
+
+        return response()->json(
+        [
+          'status' => '200',
+          'data' => BookResource::collection(Book::all()),
+          'message' => 'success'
+        ],);
+        //BookRessource::collection(Book::all());
+
+    }
+
+    public function accueil(Request $request){
+        //return redirect()->route('');
+        //shoud be replaced by the actual 
+        //homepage
+        return view('index');
+    }
+
     /*permet de créer la vue, le nouveau livre */
     public function create(){
         /*"view(books.create)" correspond au path du fichier
-        que l'on va utiliser pour créer la vue qui oermet de créer
-        automatiquement un livre view > books > create
+        que l'on va utiliser pour créer la vue qui permet de créer
+        automatiquement un livre view > books > create.blade.php
         */
         return view('books.create');
     }

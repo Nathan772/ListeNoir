@@ -78,6 +78,8 @@ c'est à dire, les ajouts en base avec des créations de lignes (tuples).
 php artisan make:controller BookController
 ```
 créé le controller, permet de récupérer les données créées via le seed.
+Cela permet d'être utilisé pour l'API, faire les 
+échanges avec ReactJs.
 
 app > Http > Controllers > Controller
 
@@ -184,3 +186,190 @@ FROM INFORMATION_SCHEMA.TABLES
 WHERE table_type = 'BASE TABLE'
 
 (https://www.datameer.com/blog/sql_how-to-display-all-the-tables-from-a-database/)
+
+
+
+Pour pouvoir écrire dans les fichiers situés dans /var/www : 
+
+```bash
+sudo chmod -R 777 /var/www
+```
+
+faire fonctionner le projet : 
+
+
+- Il faut installer composer pour avoir via le terminal pour pouvoir ensuite ajouter le répertoire "vendor/" nécessaire au fonctionnement :
+
+via la commande : 
+```bash
+composer install
+```
+--> n'installe pas forcément une versionde composer qui est à jour, 
+donc privilégier le lien en-dessous
+
+Pour installer composer aller à cette page :
+
+https://getcomposer.org/download/
+
+```bash
+
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+```
+
+Lancez ces lignes à l'endroit où sont stockés vos fichiers welcome.blade.php (la racine du projet).
+
+
+résoudre :
+
+
+voir la page suivante :
+https://stackoverflow.com/questions/73485639/php-laravel-error-your-requirements-could-not-be-resolved-to-an-installable-se
+
+
+```bash
+
+sudo apt-get install php-xml
+
+```
+
+si il y a une erreur du type " le programme ne trouve pas ListeNoir/.env" 
+("écrit en anglais")
+
+ça veut dire qu'il n'y a pas de fichier ".env".
+créer donc un fichier .env,
+remplissez le avec les données de "example.env"
+(généré automatiquement je crois, pour remplacer ".env")
+Faites donc : 
+
+```bash
+
+composer install
+php artisan key:generate
+```
+
+Pour lancer le projet voir cette page : 
+
+https://laravel.com/docs/11.x/installation
+
+
+https://gist.github.com/hootlex/da59b91c628a6688ceb1
+
+Pour résoudre :
+
+```
+Error while migrating database (Laravel): table already exists
+```
+
+https://stackoverflow.com/questions/54023636/error-while-migrating-database-laravel-table-already-existsP
+
+Pour résoudre
+
+```
+
+Laravel migration error - could not find driver - Illuminate\Database\QueryException
+
+```
+
+1) 1https://stackoverflow.com/questions/69594801/laravel-migration-error-could-not-find-driver-illuminate-database-queryexcep
+
+"could not find driver" 
+
+2) 
+--> https://stackoverflow.com/questions/22463614/php-artisan-migrate-throwing-pdo-exception-could-not-find-driver-using-larav/25137901#25137901
+
+3) 
+
+" Unable to load dynamic library 'pdo_mysql.so'"
+-->  https://stackoverflow.com/questions/62240102/php-warning-php-startup-unable-to-load-dynamic-library-pdo-mysql-so
+ 
+
+ voir cette page pour le lancement du projet et certaiens configurations :
+
+ https://www.cloudways.com/blog/connect-mariadb-to-laravel/
+
+ Pour lancer rapidement, il faut deux terminaux :
+
+1) écrire :
+
+```
+php artisan migrate
+```
+
+2) 
+
+```
+npm run dev
+```
+
+L'organisation des fichiers :
+
+- le fichier qui sert de point d'entrée est :
+
+app.blade.php
+
+
+
+CRUD REACT X LARAVEL :
+
+https://medium.com/@laravelprotips/creating-a-react-js-laravel-api-crud-a-simple-guide-02702f93d26f
+
+
+
+créer une API de ressource : 
+
+```bash
+php artisan make:resource BookResource
+```
+
+Create a FormRequest class for validation: 
+
+```bash
+
+php artisan make:request BookRequest
+
+```
+
+Dans 
+```
+api.php
+```
+on ajoute cette ligne pour préparer l'api :
+
+```
+//add by nathan
+use App\Http\Controllers\BookController;
+```
+
+Il faut modifier web.php : 
+
+
+```php
+
+Route::view('/{any?}', 'dashboard')->where('any', '.*');
+
+```
+
+pour permettre le routage.
+
+note : 
+
+/*
+ce qu'ils appellent app.jsx 
+dans le second tuto serait en fait 
+"index.jsx"
+*/
+
+Layouts/AppBooks.js
+
+remplace: leur  
+
+Layout/App.jsx
+
+
+sont à modifier pour faire fonctionner le projet... : 
+
+bookRequest.php, api.php,web.php

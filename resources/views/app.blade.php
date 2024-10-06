@@ -34,11 +34,14 @@ vite permet de gérer javascript
      il faut aussi mettre à jour le fichier
      "vite.config.js" avec le path du fichier jsx
       -->
-    @vite('resources/js/index.jsx')
+     <!-- React JS  (permet l'import de ReactJs)-->
+
+      @vite('resources/js/index.jsx')
+
     <!-- Styles -->
   
    
-   <!-- React JS -->
+  
    
     <!--@vite('resources/js/app.js') old deprecated-->
     
@@ -47,16 +50,13 @@ vite permet de gérer javascript
     
     <!-- permet de lancer la page comme page d'entrée js/app.js -->
 
-    <!--<script src="resources/js/app.js" defer></script>-->
-    <!--="{{ Vite::asset('resources/js/app.js') }}" defer></script>
-    
--->
+   
 </head>
 
 
 <body>
 
-    <p> On est dans resources > views > welcome.blade.php </p>
+    <p> On est dans resources > views > app.blade.php </p>
     <!-- deprecated -->
     <!--<div id="counter"></div>-->
     <!--
@@ -64,13 +64,19 @@ vite permet de gérer javascript
 </script>-->
 <!--
 ce que le yield signifie, c'est que à chaque fois qu'on va créé une vue 
-elle "extendra" le fichier welcome.blade.php et la partie dynamique sera le "content"
+elle "extendra" le fichier app.blade.php et la partie dynamique sera le "content"
 -->
 @yield('content')
+
 <!-- le problème de type "Target container is not a DOM element"
  est résolue par cette div
 -->
 <div id="root"></div>
+
+<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+  <div class="p-6 bg-white border-b border-gray-200" id="app">
+  </div>
+</div>
 
 
 </body>

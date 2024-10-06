@@ -1,0 +1,6 @@
+Faire de l'application une boutique de fruit et de livres :
+
+-on pourrait ajouter ou supprimer un fruit (via react + laravel)
+et/ou un livre (via laravel)
+
+-il y aurait un patron qui aurait les résumés des achats réalisés

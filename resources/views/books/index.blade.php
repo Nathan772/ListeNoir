@@ -3,7 +3,12 @@
 <!--
 Fait référence à app.blade.php (l'ancien welcome.blade...)
 -->
-@extends('app')
+
+@extends("mainLink")
+
+@section('content')
+
+
 
 <!--
 C'est ce fichier affiche les données de books pour chaque book contenu :
@@ -18,10 +23,12 @@ nom du livre
 lors de l'affichage
 -->
 
-@section('content')
 
-<h1> hello, ZA WARUUUUUDO </h1>
 
+@section("content")
+<h1> Bienvenue dans la liste de livres disponibles </h1>
+
+<h3> Voici les livres disponibles : </h3>
 
 @foreach($books as $book) 
 
@@ -31,10 +38,7 @@ lors de l'affichage
 
 {{ $book->title }} de {{ $book->user->name}}
 
-
 </p>
-
-<br>
 
 <p>
 
@@ -64,3 +68,7 @@ lors de l'affichage
 @endforeach
 
 @endsection
+
+
+
+

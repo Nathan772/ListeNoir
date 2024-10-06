@@ -5,11 +5,11 @@ import { useRef, useState } from "react";
 
 import React from "react";
 import ReactDOM from "react-dom";
-
 //import "/var/www/html/ListeNoir2/custom.scss";
 
 //il faut écrire ces lignes manuellement
 import Fruit from "./reactJs/components/Fruit";
+
 import FruitForm from "./reactJs/components/FruitForm";
 
 //cette page gère l'affichage de la page nommée App
@@ -292,6 +292,11 @@ Comme ici, avec "handleAdd".
 
 
 */
+
+
+
+/*
+useful but disabeled for some test with Books.jsx
   return (
     <div>
       <h1> Liste de fruits</h1>
@@ -307,9 +312,32 @@ Comme ici, avec "handleAdd".
         ))}
       </ul>
       <FruitForm handleAdd={handleAdd} />
+
+      
+        renderBooks();
     </div>
-  );
+
+
+
+  );*/
 }
 
 export default App;
 
+/*
+```javascript
+
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CompaniesIndex from "../Pages/Companies/Index";
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<CompaniesIndex />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+export default App
+```
+*/
