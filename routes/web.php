@@ -15,6 +15,30 @@ use Illuminate\Support\Facades\Route;
 
 /*
 
+The routes in this file are for php to php.
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+The path of this file are connected to 
+AppBooks.jsx path that are used to choose which path refers to which component
+*/
+/*
+
 c'est cette classe qui gère l'affiche du fichier test.php
 */
 /*
@@ -22,6 +46,7 @@ get est le verbe http
 
 le "/" signifie qu'on est place à la racine 
 */
+
 
 Route::get('/', function () {
 /* view va appeler un helper qui est welcome.blade.php.
@@ -63,12 +88,7 @@ si il y a une seule action on peut simplifier en :
 Route::view('/', view:'welcome');
 */
 
-/*
-premier paramètre du route : la class choisie
-deuxième paramètre : la méthode choisie (index)
-le name qui suit la première parenthèse correspond au nom que l'on souhaite donner à la méthode, ici:
-books.index
-*/
+
 
 //add by nathan
 //necessary for BooksIndex
@@ -80,13 +100,25 @@ has to match with the main
 entryPoint "blade"
 file of the project
 */
-Route::view('/{any?}', 'app')->where('any', '.*');
 
-//cela fonctionne avec postman
-//mais pas encore avec 
-Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
+//useless cause bugs ???
+//Route::view('/{any?}', 'app')->where('any', '.*');
+
+//useful for laravel X react
+// translation : 
+// if books/list is the url (it will be decided by Route in ) then 
+// call the file chosen in blade, here "booksList" (which refers to 
+//booksList.blade.php) et suit la route définie pour books/list (voir AppBooks.jsx)
+// "name(books.list)" --> name for ??? but useful
 
 
+//interprétation 2
+/*
+si dans l'url j'ai arg1, alors appeler arg2 
+*/
+//Route::view('/books/list', 'books/list')->name('books.list');
+//name correspond au nom qui sera utilisé pour ahref
+//Route::get('/books/list', [\App\Http\Controllers\BookController::class, 'index'])->name('books.list');
 
 
 /* correspond à ce qui est utilisé pour le create de create.blade.php (début)*/
@@ -94,11 +126,9 @@ Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->na
 
 
 
+Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.createReact');
 
 
-
-
-Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.create');
 
 /* 
 

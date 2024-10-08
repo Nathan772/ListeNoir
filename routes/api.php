@@ -31,7 +31,30 @@ It will be called to perform the request
 source
 https://dev.to/ekafyi/quick-example-of-laravel-api-post-route-implementation-23ld
 */
-Route::get('/books', [BookController::class, 'indexForReact']);
+
+
+
+
+/*
+
+
+the routes here are for 
+php to reactJs
+
+
+*/
+
+
+
+
+
+/* 
+premier argument : le path
+deuxième argument: la méthode de classe que l'on va utiliser pour récupérer des infos en backend
+3 eme argument : le nom à utiliser lorsqu'on fait le a href
+*/
+
+Route::get('/books/list', [BookController::class, 'indexForReact'])->name("books.list");
 //non fonctionne sur postman, donc impossible 
 //de tester via server direct, à éviter
 //Route::apiResource('/books', BookController::class);

@@ -20,8 +20,26 @@ lors de l'affichage
 
 @section('content')
 
-<h1> hello, ZA WARUUUUUDO </h1>
+<h1> hello, INDEX.BLADE.php </h1>
 
-<a href="{{ route('books.create')}}"> Créer un article </a>
-
+<!--
+this paths refer to the one use in
+web.php
+And
+AppBooks.jsx
+-->
+<!--
+<a href="{{ route('books.createReact')}}"> Créer un article </a>
+-->
+<br>
+<br> 
+<!--
+<a href="{{ route('books.list')}}"> Afficher la liste des livres disponibles en boutique </a>
+-->
+<!--
+bind with index.jsx
+element associated with root
+-->
+<div id="rootApp"></div>
+<a href="{{ route('books.list')}}"> Afficher la liste des livres disponibles en boutique </a>
 @endsection

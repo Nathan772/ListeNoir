@@ -1,4 +1,9 @@
-Faire de l'application une boutique de fruit et de livres :
+-essayer de voir si on peut ajouter 
+des liens cliquablesq qui mèneraient vers
+des routes : voir le fichier AppBooks.jsx 
+peut être que le principe des routes, c'est de ne pas avoir de lien cliquable (à méditer)
+
+-Faire de l'application une boutique de fruit et de livres :
 
 -on pourrait ajouter ou supprimer un fruit (via react + laravel)
 et/ou un livre (via laravel)

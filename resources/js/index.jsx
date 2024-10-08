@@ -19,17 +19,27 @@ import AppBooks from "./Layouts/AppBooks";
 // et permet d'utiliser d'autres librairies propres à bootstrap
 import '/var/www/html/ListeNoir/ListeNoir/custom.scss';
 
-//need to retrieve later just temporary comment for tests
-//const rootElement = document.getElementById("root");
 
-//need to replace later just temporary usage for tests
-const rootElement = document.getElementById("root");
+/*root is not a named taken from jsx but a name newly created that will be bind 
+to jsx via "createRoot() + root.render("theJSXComponentIWantToBindWithRoot)
+and then jsx will be bind to php via 
+a div that recognize this name.
+
+It seems to imply that only one 
+JSX file can be bind with one
+(not sure) component App.
+But you can still create
+several JSX files and bind them
+with several inclusion of div via
+index.blade.php as php receiver
+*/
+const rootElement = document.getElementById("rootApp");
 const root = createRoot(rootElement);
 
 
 root.render(
   <StrictMode>
-    <AppBooks/>
+    <App/>
   </StrictMode>
 );
 

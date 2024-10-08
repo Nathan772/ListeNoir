@@ -293,10 +293,7 @@ Comme ici, avec "handleAdd".
 
 */
 
-
-
-/*
-useful but disabeled for some test with Books.jsx
+//useful but disabeled for some test with Books.jsx
   return (
     <div>
       <h1> Liste de fruits</h1>
@@ -319,7 +316,7 @@ useful but disabeled for some test with Books.jsx
 
 
 
-  );*/
+  );
 }
 
 export default App;
