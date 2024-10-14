@@ -75,9 +75,16 @@ Avant toute chose, assurez-vous d'avoir installé sur votre machine :
 
 Pour lancer l'application, vous devez ouvrir deux terminaux : 
 
--dans le premier, lancez la commande : "php artisan serve --host=127.0.0.1 --port=8000".
+-dans le premier, lancez la commande : 
+```bash
+php artisan serve --host=127.0.0.1 --port=8000"
+```
 
--dans le second, lancez la commande "npm run dev".
+-dans le second, lancez la commande 
+
+```
+"npm run dev"
+```
 
 
 
