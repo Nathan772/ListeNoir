@@ -44,8 +44,12 @@ class BookController extends Controller
         return new BookResource($book);
     }
 
-
-    // créée par nathan
+    /**
+     * 
+     * this method is used to enable 
+     * reactJs part to retrieve all the books in its file
+     * BooksIndex.
+     */
     public function indexForReact(Request $request){
         //récupère les livres et les affiches dans une vue
         //possibilité 2

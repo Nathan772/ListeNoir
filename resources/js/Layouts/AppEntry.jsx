@@ -27,7 +27,7 @@ sert de route pour la création de livres
 
 */ 
 
-function AppBooks(){
+function AppEntry(){
     return (
         <BrowserRouter>
         <Routes>
@@ -41,4 +41,4 @@ function AppBooks(){
     )
 }
 
-export default AppBooks;
+export default AppEntry;

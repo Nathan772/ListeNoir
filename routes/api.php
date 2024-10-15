@@ -17,19 +17,18 @@ use App\Http\Controllers\BookController;
 |
 */
 
-//apiResource est un mot créé de toute pièce
-// (il faut aussi le créer pour l'utiliser via postman)
-//books fait référence aux fichiers dans database > migration >
-// ... create_books_table ... 
-
-//on peut aussi utiliser des mots comme get
 /*
-the name associated to the "arobase" : "indexForReact"
-refers to the method called
-by BookController that has the same name.
-It will be called to perform the request
-source
+
 https://dev.to/ekafyi/quick-example-of-laravel-api-post-route-implementation-23ld
+(x, [a,b])
+
+x-> the name of the path chosen to connect 
+with the fetch method of "BooksIndex.jsx"
+in 
+"axios.get('api/books')"
+api is implicit in Route::get('(api)/books')
+a -> the class used to call the "b" function
+b-> the function called in controller to retrieve books
 */
 Route::get('/books', [BookController::class, 'indexForReact']);
 //non fonctionne sur postman, donc impossible 

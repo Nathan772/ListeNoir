@@ -10,7 +10,7 @@ import { createRoot } from "react-dom/client";
 //need to be retrieved later
 import App from "./App";
 
-import AppBooks from "./Layouts/AppBooks";
+import AppEntry from "./Layouts/AppEntry";
 //import Books from "./reactJs/components/Books";
 
 //ajouté manuellement par nathan... (deprecated due to custom.scss that replaces it)
@@ -29,7 +29,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <AppBooks/>
+    <AppEntry/>
   </StrictMode>
 );
 

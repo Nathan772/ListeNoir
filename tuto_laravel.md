@@ -373,3 +373,10 @@ Layout/App.jsx
 sont à modifier pour faire fonctionner le projet... : 
 
 bookRequest.php, api.php,web.php
+
+En cas d'erreur du type " 404 error " à la page d'accueil,
+allez dans le dossier "ListeNoir/ListeNoir" puis tapez
+"php artisan route:clear", suivi de "php artisan route:cache".
+
+Cela devrait résoudre l'erreur.
+
