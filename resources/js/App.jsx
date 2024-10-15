@@ -311,7 +311,6 @@ Comme ici, avec "handleAdd".
       <FruitForm handleAdd={handleAdd} />
 
       
-        renderBooks();
     </div>
 
 

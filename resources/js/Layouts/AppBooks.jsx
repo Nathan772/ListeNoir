@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import BooksIndex from "../reactJs/components/Indexes/BooksIndex"
 import App from "../App"
 import FruitForm from '../reactJs/components/FruitForm';
-
+import MainLinks from '../reactJs/components/MainLinks';
 /* the name "BooksIndex" 
 refers to 
 "BooksIndex" which is imported but which is also the 
@@ -55,17 +55,19 @@ pour des requêtes vers le serveur, elles doivent pas servir à remplacer
 les "<a href>...""
 */
 
-
+//on pourrait afficher par défaut app dans AppBooks
+//mais ce n'est pas le but
+//<Route path="/" element={<App/>} /
+/*    <Route path="/" element={<MainLinks/>} />
+--> ne fonctionne pas comme on le voudrait
+*/
 function AppBooks(){
     return (
         <div>  
         <BrowserRouter>
         <Routes>
-        
-        <Route path="/" element={<App/>} />
-        <Route path="/books/list" element={<BooksIndex/>} />
-        <Route path="/books/createReact" element={<FruitForm/>} />
-        
+        <Route path="/books/list2" element={<BooksIndex/>} />
+        <Route path="/books/create" element={<FruitForm/>} />
         </Routes>
 
     </BrowserRouter>
@@ -73,5 +75,12 @@ function AppBooks(){
     
     )
 }
+/*
+function AppBooks(){
+    return (
+        <h1>bjr AppBooks</h1>
+    
+    )
+}*/
 
 export default AppBooks;

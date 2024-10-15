@@ -41,5 +41,17 @@ bind with index.jsx
 element associated with root
 -->
 <div id="rootApp"></div>
-<a href="{{ route('books.list')}}"> Afficher la liste des livres disponibles en boutique </a>
+
+<!--<div id="booksList"></div>-->
+<!--<a href="{{ route('books.list')}}"> Afficher la liste des livres disponibles en boutique 
+    
+</a>-->
+@endsection
+
+@extends("mainLink")
+
+
+@section('content')
+
+
 @endsection

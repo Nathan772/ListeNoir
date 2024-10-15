@@ -32,6 +32,9 @@ But you can still create
 several JSX files and bind them
 with several inclusion of div via
 index.blade.php as php receiver
+
+maybe only one Main ReactJs page possible, since
+there's only one link with @vite() connected to one file (this one)
 */
 const rootElement = document.getElementById("rootApp");
 const root = createRoot(rootElement);
@@ -39,10 +42,20 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <App/>
+    <AppBooks/>
   </StrictMode>
 );
-
+/*
+const booksElements = document.getElementById("booksList");
+const books = createRoot(booksElements);
+*/
+/*
+root.render(
+  <StrictMode>
+    <AppBooks/>
+  </StrictMode>
+);
+*/
 /*
 cette partie (en dessous) signifie que "root" doit afficher ("render") le composant "App" (qui correpspond au fichier App.js)
 */

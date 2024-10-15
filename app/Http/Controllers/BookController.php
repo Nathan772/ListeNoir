@@ -29,9 +29,17 @@ class BookController extends Controller
 
         //utilise le modèle
     
-        return view('books.index', [
-            'books' => $books
-        ]);
+        /*;*/
+        //
+        /*
+        
+        voir : https://laravel.com/docs/11.x/redirects
+
+        */
+        //return redirect()->route('books/lists');
+        //return view('books.index');
+        \Log::info("on rentre dans index tout court");
+        return BookResource::collection(Book::all());
 
     }
 
@@ -66,7 +74,9 @@ class BookController extends Controller
         //   'data' => BookResource::collection(Book::all()),
         //   'message' => 'success'
         // ],);
-        return BookResource::collection(Book::all());
+        \Log::info("on rentre dans index for java");
+        return response->json($data);
+        //return BookResource::collection(Book::all());
 
     }
 

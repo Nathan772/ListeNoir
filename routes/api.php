@@ -54,7 +54,16 @@ deuxième argument: la méthode de classe que l'on va utiliser pour récupérer 
 3 eme argument : le nom à utiliser lorsqu'on fait le a href
 */
 
-Route::get('/books/list', [BookController::class, 'indexForReact'])->name("books.list");
+//works but only to show data not for direction to BooksIndex.jsx
+//Route::get('/books/list', [BookController::class, 'indexForReact'])->name("books.list");
+
+//Route::apiResource('/books/list', BookController::class);
+
+#Route::get('/books/list', BookController::class);
+
+//Route::view('/books/list', [BookController::class, 'indexForReact'])->name("books.list");
+
+
 //non fonctionne sur postman, donc impossible 
 //de tester via server direct, à éviter
 //Route::apiResource('/books', BookController::class);

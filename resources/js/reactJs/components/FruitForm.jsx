@@ -103,7 +103,7 @@ tout ce qui a un lien avec la copie du state doit
 */
 export default function FruitForm({ handleAdd }) {
   //state
-
+  console.log("bienvenue dans le form de fruit !!");
   //nouveau state , Sam correspond à la valeur par défaut
   // assignation : ascendant + descendant
   const [nouveauFruit, setNouveauFruit] = useState("");

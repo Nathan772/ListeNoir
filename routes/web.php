@@ -26,6 +26,33 @@ The routes in this file are for php to php.
 
 
 
+/*
+load the mainLink for any view that come fr
+1) which url
+2) what to show (which is connected by the url chosen)
+*/
+
+/*Route::view('/books/list', 'books/list');
+*/
+Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.createReact');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,7 +74,7 @@ get est le verbe http
 le "/" signifie qu'on est place à la racine 
 */
 
-
+/*
 Route::get('/', function () {
 /* view va appeler un helper qui est welcome.blade.php.
 Ici, on a plus la page d'affichage classique, car on a modifié le fichier blade pour qu'il redirige vers app avec la liste
@@ -60,11 +87,8 @@ de fruits (initialement)
 
     /*on va appeler index,
     lorsqu'on est à la racine de façon à ne pas appeler directemenent le template (app)
-    */
     return view('index');
-
-
-});
+});*/
 
 /*
 
@@ -79,7 +103,7 @@ troisième argument : le nom qui sera utilisé pour l'appeler
 quand on fera "route('LeNomChoisit')" (ici accueil)
 
 */
-Route::get('/app', [\App\Http\Controllers\BookController::class, 'accueil'])->name('accueil');
+//Route::get('/app', [\App\Http\Controllers\BookController::class, 'accueil'])->name('accueil');
 
 
 /*
@@ -126,7 +150,7 @@ si dans l'url j'ai arg1, alors appeler arg2
 
 
 
-Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.createReact');
+//Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.createReact');
 
 
 
@@ -139,7 +163,7 @@ il faut donc  préciser dans le path du post
 le mot **store** (associé à la méthode).
 */
 
-Route::post('/books/store', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+//Route::post('/books/store', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
 
 
 
@@ -169,14 +193,14 @@ ici on précise aussi
 "edit" de app > Https > Controllers > BookController 
 */
 
-Route::get('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
+//Route::get('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
 
 /* on appelle la méthode "update" lorsqu'on appelle edit de books.update.
 On lui passe le book comme argument.
 On appelle put car on appelle @method('PUT') dans edit.blade (qui est associé à update)
 */
 
-Route::put('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
+//Route::put('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
 
 
 
@@ -214,7 +238,7 @@ ici on précise aussi
 qui doit aussi matcher avec le fichier edit.blade > books.destroy (du formulaire)
 */
 
-Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+//Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 
 //Route::delete('/books/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 
