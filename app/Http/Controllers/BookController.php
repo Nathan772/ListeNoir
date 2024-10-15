@@ -72,14 +72,15 @@ class BookController extends Controller
         // //return BooksIndex.render();
         // //return Book::all();
         
-        // return response()->json(
-        // [
-        //   'status' => '200',
-        //   'data' => BookResource::collection(Book::all()),
-        //   'message' => 'success'
-        // ],);
-        \Log::info("on rentre dans index for java");
-        return response->json($data);
+        //better version to display data... (15/10)
+        return response()->json(
+        [
+          'status' => '200',
+          'data' => BookResource::collection(Book::all()),
+          'message' => 'success'
+        ],);
+        // \Log::info("on rentre dans index for java");
+        // return response->json($data);
         //return BookResource::collection(Book::all());
 
     }

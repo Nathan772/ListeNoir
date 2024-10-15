@@ -19,22 +19,14 @@ class BooksIndex extends Component {
       books: [],
     };
   }
-  /*
+  
   fetchBooks() {
-    //       //retrieve the value associated to the path
-//       // the path is the path chosen for the getter in web.php (api is implicitly add)
-    
-    
+    // retrieve the value associated to the path in api.php.
+  // the path is the path chosen for the get in api.php (api is implicitly add)
       axios
       .get('api/books/list')
       .then((response) => this.setState({ books: response.data.data }));
-  }*/
-
-
-
-
-
-
+  }
 
 
 

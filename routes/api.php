@@ -31,36 +31,7 @@ a -> the class used to call the "b" function
 b-> the function called in controller to retrieve books
 */
 
-
-
-
-/*
-
-
-the routes here are for 
-php to reactJs
-
-
-*/
-
-
-
-
-
-/* 
-premier argument : le path
-deuxième argument: la méthode de classe que l'on va utiliser pour récupérer des infos en backend
-3 eme argument : le nom à utiliser lorsqu'on fait le a href
-*/
-
-//works but only to show data not for direction to BooksIndex.jsx
-//Route::get('/books/list', [BookController::class, 'indexForReact'])->name("books.list");
-
-//Route::apiResource('/books/list', BookController::class);
-
-#Route::get('/books/list', BookController::class);
-
-//Route::view('/books/list', [BookController::class, 'indexForReact'])->name("books.list");
+Route::get('/books/list', [BookController::class, 'indexForReact']);
 
 
 //non fonctionne sur postman, donc impossible 

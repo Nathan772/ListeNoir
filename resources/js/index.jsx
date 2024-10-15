@@ -20,7 +20,7 @@ import AppEntry from "./Layouts/AppEntry";
 import '/var/www/html/ListeNoir/ListeNoir/custom.scss';
 
 
-/*root is not a named taken from jsx but a name newly created that will be bind 
+/*rootApp is not a name taken from jsx but a name newly created that will be bind 
 to jsx via "createRoot() + root.render("theJSXComponentIWantToBindWithRoot)
 and then jsx will be bind to php via 
 a div that recognize this name.

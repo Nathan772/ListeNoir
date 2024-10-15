@@ -11,18 +11,7 @@ refers to
 "BooksIndex" which is imported but which is also the 
 function chosen to render.
 
-Le nom path="/app" 
-doit faire référence au "app" du fichier
-app.blade...
-
-qui sert de point d'entrée php
-
-
-
-Books 
-
-"/books/create"
-sert de route pour la création de livres
+le path correspoond à l'url pour lequel l'élément va s'afficher
 
 
 */ 
@@ -32,7 +21,8 @@ function AppEntry(){
         <div>  
         <BrowserRouter>
         <Routes>
-        <Route path="/books/list2" element={<BooksIndex/>} />
+        <Route path="/" element={<BooksIndex/>} />
+        <Route path="/books/list" element={<BooksIndex/>} />
         <Route path="/books/create" element={<FruitForm/>} />
         </Routes>
 

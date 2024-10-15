@@ -71,7 +71,7 @@ elle "extendra" le fichier app.blade.php et la partie dynamique sera le "content
 <!-- le problème de type "Target container is not a DOM element"
  est résolue par cette div
 -->
-<div id="root"></div>
+<!--<div id="rootApp"></div>-->
 
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
   <div class="p-6 bg-white border-b border-gray-200" id="app">
