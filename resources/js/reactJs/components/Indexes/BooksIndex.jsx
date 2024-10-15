@@ -19,16 +19,16 @@ class BooksIndex extends Component {
       books: [],
     };
   }
-
+  /*
   fetchBooks() {
     //       //retrieve the value associated to the path
-//       // the path is the path chosen for the getter (api is implicitly add)
+//       // the path is the path chosen for the getter in web.php (api is implicitly add)
     
     
       axios
-      .get('api/books')
+      .get('api/books/list')
       .then((response) => this.setState({ books: response.data.data }));
-  }
+  }*/
 
 
 
@@ -100,7 +100,7 @@ class BooksIndex extends Component {
     );
   }
 }
-
+export default BooksIndex;
 
 
 // class BooksIndex extends Component {
@@ -143,4 +143,3 @@ class BooksIndex extends Component {
 //     );
 //   }
 // }
-export default BooksIndex;

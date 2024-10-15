@@ -255,6 +255,19 @@ Pour lancer le projet voir cette page :
 
 https://laravel.com/docs/11.x/installation
 
+terminal 1 :
+
+```bash
+ php artisan serve --host=192.168.1.14 --port=8000
+
+```
+
+terminal 2 :
+
+```bash
+
+npm run dev
+```
 
 https://gist.github.com/hootlex/da59b91c628a6688ceb1
 
@@ -293,10 +306,12 @@ Laravel migration error - could not find driver - Illuminate\Database\QueryExcep
 
  Pour lancer rapidement, il faut deux terminaux :
 
+https://mumin-ahmod.medium.com/how-to-run-an-existing-laravel-project-f99a70c0f112
+
 1) écrire :
 
 ```
-php artisan migrate
+php artisan serve
 ```
 
 2) 
@@ -362,6 +377,9 @@ ce qu'ils appellent app.jsx
 dans le second tuto serait en fait 
 "index.jsx"
 */
+
+Leur "Index.jsx" serait notre "BooksIndex.jsx"
+
 
 Layouts/AppBooks.js
 

@@ -34,7 +34,7 @@ vite permet de gérer javascript
      il faut aussi mettre à jour le fichier
      "vite.config.js" avec le path du fichier jsx
       -->
-     <!-- React JS  (permet l'import de ReactJs)-->
+     <!-- React JS  (permet l'import de ReactJs et sa connexion avec laravel)-->
 
       @vite('resources/js/index.jsx')
 

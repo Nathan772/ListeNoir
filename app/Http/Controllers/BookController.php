@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Resources\BookResource;
 
+#use App\resources\js\reactJs\components\Indexes\BooksIndex;
+
 class BookController extends Controller
 {
     // créée par nathan
@@ -26,16 +28,18 @@ class BookController extends Controller
         */
 
         //utilise le modèle
-        $books = Book::all();
+    
+        /*;*/
+        //
         /*
-        "view(books.create)" correspond au path du fichier
-        que l'on va utiliser pour créer la vue qui permet de voir
-        automatiquement l'ensemble des 
-         livres view > books > index.blade.php
+        
+        voir : https://laravel.com/docs/11.x/redirects
+
         */
-        return view('books.index', [
-            'books' => $books
-        ]);
+        //return redirect()->route('books/lists');
+        //return view('books.index');
+        \Log::info("on rentre dans index tout court");
+        return BookResource::collection(Book::all());
 
     }
 
@@ -51,28 +55,32 @@ class BookController extends Controller
      * BooksIndex.
      */
     public function indexForReact(Request $request){
-        //récupère les livres et les affiches dans une vue
-        //possibilité 2
-        //return view('books/index');
+        // //récupère les livres et les affiches dans une vue
+        // //possibilité 2
+        // //return view('books/index');
 
-        // récupère les données dans une vue
-        /*
-        renvoie un tableau
-        qui possède la variable $books
-        */
-        // Get data here, eg. make an external API request or DB query
+        // // récupère les données dans une vue
+        // /*
+        // renvoie un tableau
+        // qui possède la variable $books
+        // */
+        // // Get data here, eg. make an external API request or DB query
         
 
-         // Return success
+        //  // Return success
 
-
-        return response()->json(
-        [
-          'status' => '200',
-          'data' => BookResource::collection(Book::all()),
-          'message' => 'success'
-        ],);
-        //BookRessource::collection(Book::all());
+        // //return BooksIndex.render();
+        // //return Book::all();
+        
+        // return response()->json(
+        // [
+        //   'status' => '200',
+        //   'data' => BookResource::collection(Book::all()),
+        //   'message' => 'success'
+        // ],);
+        \Log::info("on rentre dans index for java");
+        return response->json($data);
+        //return BookResource::collection(Book::all());
 
     }
 
@@ -89,7 +97,12 @@ class BookController extends Controller
         que l'on va utiliser pour créer la vue qui permet de créer
         automatiquement un livre view > books > create.blade.php
         */
-        return view('books.create');
+        //deprecated : return view is for blade files
+        
+        //return view('books.create');
+
+        //redirect()->route is for reactJsconnexion
+        return redirect()->route('books.createReact');
     }
 
     /* cette méthode possède le même nom que la méthode qui apparaît dans

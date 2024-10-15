@@ -15,6 +15,57 @@ use Illuminate\Support\Facades\Route;
 
 /*
 
+The routes in this file are for php to php.
+
+
+*/
+
+
+
+
+
+
+
+/*
+load the mainLink for any view that come fr
+1) which url
+2) what to show (which is connected by the url chosen)
+*/
+
+/*Route::view('/books/list', 'books/list');
+*/
+Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.createReact');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+The path of this file are connected to 
+AppBooks.jsx path that are used to choose which path refers to which component
+*/
+/*
+
 c'est cette classe qui gère l'affiche du fichier test.php
 */
 /*
@@ -23,6 +74,7 @@ get est le verbe http
 le "/" signifie qu'on est place à la racine 
 */
 
+/*
 Route::get('/', function () {
 /* view va appeler un helper qui est welcome.blade.php.
 Ici, on a plus la page d'affichage classique, car on a modifié le fichier blade pour qu'il redirige vers app avec la liste
@@ -35,11 +87,8 @@ de fruits (initialement)
 
     /*on va appeler index,
     lorsqu'on est à la racine de façon à ne pas appeler directemenent le template (app)
-    */
     return view('index');
-
-
-});
+});*/
 
 /*
 
@@ -54,7 +103,7 @@ troisième argument : le nom qui sera utilisé pour l'appeler
 quand on fera "route('LeNomChoisit')" (ici accueil)
 
 */
-Route::get('/app', [\App\Http\Controllers\BookController::class, 'accueil'])->name('accueil');
+//Route::get('/app', [\App\Http\Controllers\BookController::class, 'accueil'])->name('accueil');
 
 
 /*
@@ -63,12 +112,7 @@ si il y a une seule action on peut simplifier en :
 Route::view('/', view:'welcome');
 */
 
-/*
-premier paramètre du route : la class choisie
-deuxième paramètre : la méthode choisie (index)
-le name qui suit la première parenthèse correspond au nom que l'on souhaite donner à la méthode, ici:
-books.index
-*/
+
 
 //add by nathan
 //necessary for BooksIndex
@@ -80,13 +124,25 @@ has to match with the main
 entryPoint "blade"
 file of the project
 */
-Route::view('/{any?}', 'app')->where('any', '.*');
 
-//cela fonctionne avec postman
-//mais pas encore avec 
-Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
+//useless cause bugs ???
+//Route::view('/{any?}', 'app')->where('any', '.*');
+
+//useful for laravel X react
+// translation : 
+// if books/list is the url (it will be decided by Route in ) then 
+// call the file chosen in blade, here "booksList" (which refers to 
+//booksList.blade.php) et suit la route définie pour books/list (voir AppBooks.jsx)
+// "name(books.list)" --> name for ??? but useful
 
 
+//interprétation 2
+/*
+si dans l'url j'ai arg1, alors appeler arg2 
+*/
+//Route::view('/books/list', 'books/list')->name('books.list');
+//name correspond au nom qui sera utilisé pour ahref
+//Route::get('/books/list', [\App\Http\Controllers\BookController::class, 'index'])->name('books.list');
 
 
 /* correspond à ce qui est utilisé pour le create de create.blade.php (début)*/
@@ -94,11 +150,9 @@ Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->na
 
 
 
+//Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.createReact');
 
 
-
-
-Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.create');
 
 /* 
 
@@ -109,7 +163,7 @@ il faut donc  préciser dans le path du post
 le mot **store** (associé à la méthode).
 */
 
-Route::post('/books/store', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+//Route::post('/books/store', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
 
 
 
@@ -139,14 +193,14 @@ ici on précise aussi
 "edit" de app > Https > Controllers > BookController 
 */
 
-Route::get('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
+//Route::get('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
 
 /* on appelle la méthode "update" lorsqu'on appelle edit de books.update.
 On lui passe le book comme argument.
 On appelle put car on appelle @method('PUT') dans edit.blade (qui est associé à update)
 */
 
-Route::put('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
+//Route::put('/books/edit/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('books.update');
 
 
 
@@ -184,7 +238,7 @@ ici on précise aussi
 qui doit aussi matcher avec le fichier edit.blade > books.destroy (du formulaire)
 */
 
-Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
+//Route::delete('/books/destroy/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 
 //Route::delete('/books/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 
