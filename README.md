@@ -73,11 +73,18 @@ Avant toute chose, assurez-vous d'avoir installé sur votre machine :
 - Laravel avec une version supérieure ou égale à la version 9.5
 - Php, avec une version supérieure ou égale à la version 8.3.11
 
-Pour lancer l'application, vous devez ouvrir deux terminaux : 
+Pour lancer l'application, vous devez vous placer dans le répertoire ListeNoir/ListeNoir, située dans var/www/html, puis, ouvrir deux terminaux : 
 
--dans le premier, lancez la commande : "php artisan serve --host=127.0.0.1 --port=8000".
+-dans le premier, lancez la commande : 
+```bash
+php artisan serve --host=127.0.0.1 --port=8000"
+```
 
--dans le second, lancez la commande "npm run dev".
+-dans le second, lancez la commande 
+
+```
+"npm run dev"
+```
 
 
 
